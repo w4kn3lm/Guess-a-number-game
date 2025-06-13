@@ -1,12 +1,13 @@
 import random
-
 class MyClass:
     def main_menu(self):
         print('Пограємно в "Вгадай число" :)')
         level = input('Обери рівень складності від 1 до 3: ')
-        self.game(level)
+        score = int(0)
+        self.game(level, score)
+        
 
-    def game(self, level):
+    def game(self, level, score):
         print('================================')
         if level == '1':
             number = random.randint(1, 10)
@@ -37,6 +38,8 @@ class MyClass:
             if us_num == number:
                 print('================================')
                 print('Вітаю! Ти вгадав!')
+                score =+ 1
+                print(f'Твій рахунок вгаданих чисел: {score}')
                 self.menu()
                 return
             elif us_num > number:
@@ -47,14 +50,16 @@ class MyClass:
                 print('Не вгадав! Більше!')
 
         print(f'Ти не вгадав. Загадане число було: {number}')
+        print(f'Твій рахунок: {score}')
         self.menu()
 
-    def menu(self):
+    def menu(self, score):
+        print('================================')
         ch = input('Бажаєш грати знову? 1 - так / 2 - вийти: ')
         if ch == '1':
             self.main_menu()
         elif ch == '2':
-            print('До побачення!')
+            print(f'До побачення! Ти вгадав {score} чисел, ти молодець!')
             exit()
         else:
             print('Неправильне введення.')
