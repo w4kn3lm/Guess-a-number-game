@@ -40,7 +40,7 @@ class MyClass:
                 print('Вітаю! Ти вгадав!')
                 score =+ 1
                 print(f'Твій рахунок вгаданих чисел: {score}')
-                self.menu()
+                self.menu(score)
                 return
             elif us_num > number:
                 print('================================')
